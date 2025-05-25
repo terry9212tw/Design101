@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cyan-100: #cffafe; /* 淡青色，時間軸中心線 */
+  --color-cyan-200: #a5f3fc; /* 淡青色，標題文字 */
+  --color-cyan-700: #0e7490; /* 深青色，節點圖標 */
+  --color-teal-100: #ccfbf1; /* 淡 teal，時間軸中心線 */
+  --color-teal-200: #99f6e4; /* 淡 teal，標題文字 */
+  --color-teal-600: #0f766e; /* 深 teal，節點圖標 */
+  --color-rose-100: #ffe4e6; /* 淡玫瑰紅，時間軸中心線 */
+  --color-rose-200: #fecdd3; /* 淡玫瑰紅，標題文字 */
+  --color-rose-600: #be123c; /* 深玫瑰紅，節點圖標 */
+  --color-gray-100: #f3f4f6; /* 描述文字 */
+}
+@keyframes carMove0 {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+/* @keyframes carMove1 {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100vw);
+  }
+} */
+
+@keyframes birdFly {
+  0% {
+      transform: translateX(100vw);
+  }
+  100% {
+      transform: translateX(-150vw);
+  }
+}
+
+/* 隨機為每輛車生成一個動畫 */
+.car-animation {
+  position: absolute;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* .bird-animation {
+  position: absolute;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+} */
+
+.bird-animation {
+  /* position: absolute; */
+  /* top: 20%; */
+  /* right: -30%;  */
+  animation-name: birdFly;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  pointer-events: none;
+}
+
+.car-animation:nth-child(odd) {
+  animation-name: carMove0;
+}
+
+.car-animation:nth-child(even) {
+  animation-name: carMove0;
+}
+
+
+@layer utilities {
+  @keyframes float-cloud {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100vw);
+    }
+  }
+
+  .animate-cloud {
+    animation: float-cloud 20s linear infinite;
+  }
+}
+
+  
